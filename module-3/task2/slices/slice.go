@@ -1,20 +1,16 @@
 package slices
 
-import (
-	"sort"
-)
+import "sort"
 
 func SortStringsInPlace(s []string) {
 	sort.Strings(s)
 }
 
 func SortStringsPure(s []string) []string {
-	r := make([]string, len(s))
-	copy(r, s)
-
-	sort.Strings(r)
-
-	return r
+	var s2 = make([]string, len(s))
+	copy(s2, s)
+	sort.Strings(s2)
+	return s2
 }
 
 type User struct {
@@ -23,33 +19,25 @@ type User struct {
 }
 
 func SortUsersPure(s []User) []User {
-	r := make([]User, len(s))
-
-	copy(r, s)
-
-	sort.Slice(r, func(i, j int) bool {
-		if r[i].FirstName != r[j].FirstName {
-			return r[i].FirstName < r[j].FirstName
+	u := make([]User, len(s))
+	copy(u, s)
+	sort.Slice(u, func(i, j int) bool {
+		if u[i].FirstName != u[j].FirstName {
+			return u[i].FirstName < u[j].FirstName
 		}
-
-		return r[i].LastName < r[j].LastName
+		return u[i].LastName < u[j].LastName
 	})
-
-	return r
+	return u
 }
 
 func SortUsersPureDesc(s []User) []User {
-	r := make([]User, len(s))
-
-	copy(r, s)
-
-	sort.Slice(r, func(i, j int) bool {
-		if r[i].FirstName != r[j].FirstName {
-			return r[i].FirstName > r[j].FirstName
+	u := make([]User, len(s))
+	copy(u, s)
+	sort.Slice(u, func(i, j int) bool {
+		if u[i].FirstName != u[j].FirstName {
+			return u[i].FirstName > u[j].FirstName
 		}
-
-		return r[i].LastName > r[j].LastName
+		return u[i].LastName > u[j].LastName
 	})
-
-	return r
+	return u
 }
