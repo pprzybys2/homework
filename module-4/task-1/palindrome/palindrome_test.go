@@ -10,9 +10,9 @@ func TestIsPalindrome(t *testing.T) {
 		exp bool
 	}{
 		{in: "aa", exp: true},
+		{in: "mełłem", exp: true},
 		{in: "ab", exp: false},
 		{in: "aba", exp: true},
-		{in: "mełłem", exp: true},
 		{in: "Hello", exp: false},
 	}
 
